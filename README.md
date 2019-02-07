@@ -1,4 +1,4 @@
-# vendor_portal
+# Vendor portal
 
 ## Project setup
 ```
