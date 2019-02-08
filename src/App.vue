@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="grey lighten-4">
     <TopNavBar @toggleBar="changeBarState"></TopNavBar>
     <SideNavBar :navState = navSate></SideNavBar>
     <v-content>
