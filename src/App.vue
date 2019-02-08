@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <TopNavBar></TopNavBar>
-    <SideNavBar></SideNavBar>
+    <TopNavBar @toggleBar="changeBarState"></TopNavBar>
+    <SideNavBar :navState = navSate></SideNavBar>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -17,12 +17,18 @@ export default {
   name: 'App',
   data () {
     return {
-      //
+      navSate: false
     }
   },
   components: {
     SideNavBar,
     TopNavBar
+  },
+  methods: {
+    changeBarState (value) {
+      console.log('>>>', value)
+      this.navSate = value
+    }
   }
 }
 </script>

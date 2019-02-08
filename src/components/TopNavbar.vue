@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-toolbar app light>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click="toggleSidebar"></v-toolbar-side-icon>
       <v-toolbar-title>Title</v-toolbar-title>
       <v-spacer></v-spacer>
 
@@ -17,6 +17,17 @@ export default {
   name: 'TopNavbar',
   components: {
     AvatorSection
+  },
+  data () {
+    return {
+      open: false
+    }
+  },
+  methods: {
+    toggleSidebar () {
+      this.open = !this.open
+      this.$emit('toggleBar', this.open)
+    }
   }
 }
 </script>

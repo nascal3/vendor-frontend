@@ -18,14 +18,25 @@
 <script>
 export default {
   name: 'SideNavbar',
+  props: {
+    navState: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
-      drawer: true,
+      drawer: false,
       links: [
         { icon: 'dashboard', text: 'Dashboard', route: '/' },
         { icon: 'folder', text: 'My Projects', route: '/projects' },
         { icon: 'person', text: 'team', route: '/team' }
       ]
+    }
+  },
+  watch: {
+    navState () {
+      this.drawer = true
     }
   }
 }
