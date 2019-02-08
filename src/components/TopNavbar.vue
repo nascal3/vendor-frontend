@@ -1,10 +1,13 @@
 <template>
   <nav>
-    <v-toolbar app light>
-      <v-toolbar-side-icon @click="toggleSidebar"></v-toolbar-side-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
+    <v-toolbar app light class="blue-grey--text text--darken-4">
+      <v-toolbar-side-icon class="blue-grey--text text--darken-4" @click="toggleSidebar"></v-toolbar-side-icon>
+      <!--<v-toolbar-title>Vendor Dashboard</v-toolbar-title>-->
       <v-spacer></v-spacer>
-
+      <div class="logo">
+        <img class="logo__topNav" src="@/assets/logo/tuskys_logo.jpg" alt="tuskys logo">
+      </div>
+      <v-spacer></v-spacer>
       <AvatorSection></AvatorSection>
     </v-toolbar>
   </nav>
@@ -32,6 +35,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../styles/main";
 
+ .logo {
+   overflow: hidden;
+   width: 115px;
+   height: 42px;
+
+   &__topNav {
+     max-width: 100%;
+   }
+ }
 </style>

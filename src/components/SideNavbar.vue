@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-navigation-drawer app v-model="drawer" class="indigo">
+    <v-navigation-drawer app v-model="drawer" class="primary">
       <v-list>
         <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-tile-action>
@@ -36,12 +36,13 @@ export default {
   },
   watch: {
     navState () {
-      this.drawer = true
+      this.drawer = !this.drawer
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../styles/main";
 
 </style>
