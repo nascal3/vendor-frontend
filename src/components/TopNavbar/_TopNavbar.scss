@@ -1,0 +1,11 @@
+@import "../../styles/main";
+
+.logo {
+  overflow: hidden;
+  width: 115px;
+  height: 42px;
+
+  &__topNav {
+    max-width: 100%;
+  }
+}

@@ -10,8 +10,8 @@
 
 <script>
 
-import TopNavBar from '@/components/TopNavbar'
-import SideNavBar from '@/components/SideNavbar'
+import TopNavBar from '@/components/TopNavbar/TopNavbar'
+import SideNavBar from '@/components/SideNavbar/SideNavbar'
 
 export default {
   name: 'App',

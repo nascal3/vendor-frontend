@@ -46,10 +46,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../styles/main";
-
-  .v-menu__content {
-    top: 60px !important;
-  }
-
+  @import "AvatorSection";
 </style>

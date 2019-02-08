@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AvatorSection from '@/components/AvatorSection'
+import AvatorSection from '@/components/AvatorSection/AvatorSection'
 
 export default {
   name: 'TopNavbar',
@@ -36,15 +36,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../styles/main";
-
- .logo {
-   overflow: hidden;
-   width: 115px;
-   height: 42px;
-
-   &__topNav {
-     max-width: 100%;
-   }
- }
+  @import "TopNavbar";
 </style>
