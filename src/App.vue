@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     changeBarState (value) {
-      console.log('>>>', value)
       this.navSate = value
     }
   }
