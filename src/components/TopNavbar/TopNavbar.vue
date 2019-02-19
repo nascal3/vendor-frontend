@@ -5,7 +5,7 @@
       <!--<v-toolbar-title>Vendor Dashboard</v-toolbar-title>-->
       <v-spacer></v-spacer>
       <div class="logo">
-        <img class="logo__topNav" src="@/assets/logo/tuskys_logo.jpg" alt="tuskys logo">
+        <v-img class="logo__topNav" :src="LogoImage" alt="tuskys logo"></v-img>
       </div>
       <v-spacer></v-spacer>
       <AvatorSection></AvatorSection>
@@ -23,7 +23,8 @@ export default {
   },
   data () {
     return {
-      open: false
+      open: false,
+      LogoImage: require('@/assets/logo/tuskys_logo.jpg')
     }
   },
   methods: {
