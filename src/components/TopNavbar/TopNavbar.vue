@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar app light class="blue-grey--text text--darken-4">
+    <v-toolbar app light class="text--darken-4">
       <v-toolbar-side-icon class="blue-grey--text text--darken-4" @click="toggleSidebar"></v-toolbar-side-icon>
       <!--<v-toolbar-title>Vendor Dashboard</v-toolbar-title>-->
       <v-spacer></v-spacer>
