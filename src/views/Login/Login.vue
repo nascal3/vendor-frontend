@@ -41,7 +41,7 @@
               <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
             </div>
           </v-card-title>
-          <v-btn color="accent">
+          <v-btn color="success">
             Try out
             <i class="material-icons">
               arrow_right_alt
