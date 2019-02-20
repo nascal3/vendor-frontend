@@ -1,15 +1,81 @@
 @import "../../styles/main";
+.v-text-field {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
 .Login {
-    // Vars
+  height: 100%;
+  background: url("../../assets/images/supermarket1.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    // Support
-
-    // Module
-    & {
-        //
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: .7;
+      background-image: linear-gradient(to bottom right, #FDC300, #F4655D);
     }
 
-    // Facets
+    &__container {
+        display: flex;
+        width: 55rem;
+        height: 28rem;
+        overflow: hidden;
+        border-radius: .5rem;
 
-    // States
+       &-form {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: column;
+         height: 100%;
+
+         &--title {
+           color: $primary;
+           font-size: 3.5rem;
+           font-weight: 300;
+         }
+
+         &--container {
+           width: 90%;
+           margin-bottom: 3rem;
+
+           & .formBtns {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+
+             & span {
+               font-weight: 300;
+
+               & a {
+                text-decoration: none;
+                 color: $link-blue;
+               }
+             }
+           }
+         }
+       }
+
+        &-left {
+          width: 60%;
+          padding: 1rem;
+        }
+
+        &-right {
+          color: $white;
+          padding: 1rem;
+          width: 40%;
+          border-radius: 0 !important;
+          background-color: $primary;
+          text-align: center;
+        }
+    }
 }
