@@ -1,1 +1,30 @@
 @import "../../styles/main";
+
+.v-list__tile__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebarLink a {
+  text-decoration: none;
+}
+
+.barIcon__circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px $success;
+  border-radius: 50%;
+  width: 3.3rem;
+  height: 3.3rem;
+  margin-right: 2rem;
+
+  &-icon {
+    width: 3rem;
+    height: 2.2rem;
+    overflow: hidden;
+    fill: $accent;
+  }
+}
