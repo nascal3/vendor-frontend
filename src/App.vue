@@ -3,7 +3,14 @@
     <TopNavBar @toggleBar="changeBarState"></TopNavBar>
     <SideNavBar :navState = navSate></SideNavBar>
     <v-content>
-      <router-view></router-view>
+      <transition
+        name="bounce"
+        enter-active-class="bounceInLeft"
+        leave-active-class="bounceOutRight"
+        mode="out-in"
+      >
+        <router-view></router-view>
+      </transition>
     </v-content>
   </v-app>
 </template>
