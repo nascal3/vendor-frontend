@@ -70,12 +70,35 @@
         }
 
         &-right {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
           color: $white;
           padding: 1rem;
           width: 40%;
+          height: 100%;
           border-radius: 0 !important;
           background-color: $primary;
-          text-align: center;
+
+          & .v-card__title {
+            text-align: center;
+
+            & div {
+              & .headline {
+                display: block;
+                font-weight: 300;
+                font-size: 2rem !important;
+                margin-top: .5rem;
+                margin-bottom: 1rem;
+              }
+            }
+          }
+
+          & .v-btn {
+            width: 12rem;
+            margin-bottom: 3rem;
+          }
         }
     }
 }

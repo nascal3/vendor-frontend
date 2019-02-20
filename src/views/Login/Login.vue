@@ -40,8 +40,13 @@
               <h3 class="headline ">Vendor Portal System</h3>
               <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
             </div>
-
           </v-card-title>
+          <v-btn color="accent">
+            Try out
+            <i class="material-icons">
+              arrow_right_alt
+            </i>
+          </v-btn>
         </div>
       </v-card>
     </div>
