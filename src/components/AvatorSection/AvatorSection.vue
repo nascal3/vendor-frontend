@@ -36,9 +36,8 @@ export default {
   data () {
     return {
       links: [
-        { icon: 'account_circle', text: 'Account', route: '/' },
-        { icon: 'settings', text: 'Settings', route: '/projects' },
-        { icon: 'exit_to_app', text: 'Sign Out', route: '/team' }
+        { icon: 'settings', text: 'Settings', route: '/settings' },
+        { icon: 'exit_to_app', text: 'Sign Out', route: '/' }
       ]
     }
   }
