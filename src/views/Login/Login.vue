@@ -39,6 +39,9 @@
             <div>
               <h3 class="headline ">Vendor Portal System</h3>
               <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+              <div class="Login__container-logo">
+                <v-icon color="white">local_shipping</v-icon>
+              </div>
             </div>
           </v-card-title>
           <v-btn color="success">
