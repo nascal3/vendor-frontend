@@ -1,5 +1,11 @@
 @import "../../styles/main";
 
+.v-navigation-drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .v-list__tile__avatar {
   display: flex;
   align-items: center;
@@ -27,4 +33,21 @@
     overflow: hidden;
     fill: $accent;
   }
+}
+
+.sidebarFooter {
+  color: #cccccc;
+  font-size: .7rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  & a {
+    color: $accent;
+    text-decoration: none;
+  }
+}
+
+.sidebarFooter2 {
+  font-size: .5rem;
 }
