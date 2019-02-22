@@ -1,1 +1,24 @@
 @import "../../styles/main";
+
+.home {
+  padding: 2rem;
+
+  &__itemsCard {
+    border-radius: .5rem;
+    min-height: 30rem;
+    width: 32.5%;
+    margin-bottom: 1.5rem;
+  }
+
+  &__itemsTableCard {
+    border-radius: .5rem;
+    min-height: 30rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.v-sheet--offset {
+  //top: -24px;
+  //position: relative;
+}
