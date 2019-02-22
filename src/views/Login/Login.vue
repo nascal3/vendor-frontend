@@ -1,6 +1,6 @@
 <template>
     <div class="Login">
-      <v-card class="Login__container">
+      <v-card elevation="7" class="Login__container">
         <div class="Login__container-left">
 
           <div class="Login__container-form">
