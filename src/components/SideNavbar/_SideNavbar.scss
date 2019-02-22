@@ -35,6 +35,17 @@
   }
 }
 
+.sidebar {
+
+  &__Item {
+    color: $success;
+  }
+
+  &__subItem {
+    margin-left: .8rem;
+  }
+}
+
 .sidebarFooter {
   color: #cccccc;
   font-size: .7rem;

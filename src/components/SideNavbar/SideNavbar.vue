@@ -37,15 +37,30 @@
           </v-list-tile>
         </v-list>
         <v-list dense>
-          <v-divider class="grey darken-2"></v-divider>
-          <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
-            <v-list-tile-action>
-              <v-icon class="white--text">{{link.icon}}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title class="white--text">{{link.text}}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+
+          <v-list-group id="change" prepend-icon="attach_money" value="true">
+            <v-list-tile class="sidebar__Item" slot="activator">
+              <v-list-tile-title color="success">Sales</v-list-tile-title>
+            </v-list-tile>
+
+              <v-list-tile class="sidebar__subItem" router :to="'/home'">
+                <v-list-tile-action>
+                  <v-icon class="white--text">bar_chart</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title class="white--text">Item sales</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile class="sidebar__subItem" router :to="'/compare'">
+                <v-list-tile-action>
+                  <v-icon class="white--text">pie_chart</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title class="white--text">Compare sales</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+          </v-list-group>
+
         </v-list>
       </section>
 
@@ -90,6 +105,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../styles/main";
+  #change {
+    .v-list__group__header__prepend-icon.primary--text {
+      color: $success !important;
+    }
+
+    .v-list__group__header__prepend-icon {
+      .theme--dark.v-icon  {
+        color: $success !important;
+      }
+    }
+  }
+</style>
 
 <style lang="scss" scoped>
   @import "SideNavbar";
