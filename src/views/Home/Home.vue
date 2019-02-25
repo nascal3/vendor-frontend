@@ -2,64 +2,26 @@
   <div class="home">
     <section class="row">
       <v-card class="home__itemsCard">
-        <v-sheet
-          color="accent"
-          elevation="6"
-          max-width="100%"
-        >
-          <v-sparkline
-            :labels="labels"
-            :value="value"
-            color="white"
-            line-width="2"
-            padding="16"
-          ></v-sparkline>
-        </v-sheet>
-
+        {{sampleData.item}}
       </v-card>
       <v-card class="home__itemsCard">
-        <v-sheet
-          color="accent"
-          elevation="6"
-          max-width="100%"
-        >
-          <v-sparkline
-            :labels="labels"
-            :value="value"
-            color="white"
-            line-width="2"
-            padding="16"
-          ></v-sparkline>
-        </v-sheet>
-
+        {{sampleData.pages}}
       </v-card>
       <v-card class="home__itemsCard">
-        <v-sheet
-          color="accent"
-          elevation="6"
-          max-width="100%"
-        >
-          <v-sparkline
-            :labels="labels"
-            :value="value"
-            color="white"
-            line-width="2"
-            padding="16"
-          ></v-sparkline>
-        </v-sheet>
 
       </v-card>
     </section>
 
     <section class="row">
       <v-card class="home__itemsTableCard">
-
+        {{sampleData.transactions}}
       </v-card>
     </section>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   data () {
@@ -85,6 +47,18 @@ export default {
         240
       ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      sampleData: 'fakeData'
+    }),
+    ...mapActions({
+      getData: 'getFakeData'
+    })
+  },
+  mounted () {
+    // this.getData()
+    this.$store.dispatch('getFakeData')
   }
 }
 </script>
