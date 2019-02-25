@@ -7,7 +7,8 @@
             <div class="Login__container-form--title">
               Sign In
             </div>
-            <form class="Login__container-form--container">
+            {{loginError}}
+            <form class="Login__container-form--container" @submit.prevent="onSubmit">
               <v-text-field
                 v-model="username"
                 label="Username"
@@ -22,14 +23,14 @@
                 :type="show1 ? 'text' : 'password'"
                 name="input-10-1"
                 label="Password"
-                hint="At least 8 characters"
+                hint="At least 6 characters"
                 counter
                 @click:append="show1 = !show1"
               ></v-text-field>
 
               <div class="formBtns">
                 <span><a href="#">Forgot password?</a></span>
-                <v-btn color="info">Sign in</v-btn>
+                <v-btn type="submit" color="info">Sign in</v-btn>
               </div>
             </form>
           </div>
@@ -56,6 +57,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
   },
@@ -69,9 +72,23 @@ export default {
       password: '',
       rules: {
         required: value => !!value || 'Required.',
-        min: v => v.length >= 8 || 'Min 8 characters'
+        min: v => v.length >= 6 || 'Min 6 characters'
       }
     }
+  },
+  methods: {
+    onSubmit () {
+      const formData = {
+        username: this.username,
+        password: this.password
+      }
+      this.$store.dispatch('loginUser', formData)
+    }
+  },
+  computed: {
+    ...mapGetters({
+      loginError: 'loginError'
+    })
   }
 }
 </script>
