@@ -7,7 +7,16 @@
             <div class="Login__container-form--title">
               Sign In
             </div>
-            {{loginError}}
+            <transition
+              name="zoomUp"
+              enter-active-class="bounceLeft-enter"
+              leave-active-class="bounceRight-leave"
+            >
+              <div v-if="loginError" class="Login__container-form--error">
+                <v-icon>warning</v-icon>
+                Wrong username or Password!
+              </div>
+            </transition>
             <form class="Login__container-form--container" @submit.prevent="onSubmit">
               <v-text-field
                 v-model="username"
@@ -30,7 +39,18 @@
 
               <div class="formBtns">
                 <span><a href="#">Forgot password?</a></span>
-                <v-btn type="submit" color="info">Sign in</v-btn>
+                <v-btn
+                  type="submit"
+                  color="info"
+                >
+                  <v-progress-circular
+                    v-if="showLoader"
+                    indeterminate
+                    :width="3"
+                    color="primary"
+                  ></v-progress-circular>
+                  <span v-if="!showLoader">Sign in</span>
+                </v-btn>
               </div>
             </form>
           </div>
@@ -87,8 +107,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      loginError: 'loginError'
+      loginError: 'loginError',
+      showLoader: 'showLoader',
+      loggedIn: 'loggedIn'
     })
+  },
+  watch: {
+    loggedIn (newValue, oldValue) {
+      if (newValue) {
+        this.$router.push('home')
+      }
+    }
   }
 }
 </script>
