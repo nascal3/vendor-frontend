@@ -118,6 +118,11 @@ export default {
         this.$router.push('home')
       }
     }
+  },
+  mounted () {
+    if (this.loggedIn) {
+      this.$router.push('home')
+    }
   }
 }
 </script>
