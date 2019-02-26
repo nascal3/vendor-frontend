@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../src/store/modules/auth'
 import Home from './views/Home/Home.vue'
 import Login from './views/Login/Login'
 
@@ -17,7 +18,14 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      beforeEnter (to, from, next) {
+        if (store.state.loggedIn) {
+          next()
+        } else {
+          next('/')
+        }
+      }
     },
     {
       path: '/about',
