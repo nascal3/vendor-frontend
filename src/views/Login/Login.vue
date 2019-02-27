@@ -42,6 +42,7 @@
                 <v-btn
                   type="submit"
                   color="info"
+                  :disabled="showLoader"
                 >
                   <v-progress-circular
                     v-if="showLoader"
