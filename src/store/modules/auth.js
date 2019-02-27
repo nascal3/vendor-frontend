@@ -4,7 +4,7 @@ const state = {
   loading: false,
   loggedIn: null || localStorage.getItem('loggedIn'),
   tokenID: null,
-  userData: {} || localStorage.getItem('userData'),
+  userData: null || localStorage.getItem('userData'),
   loginError: null,
   fakeData: []
 }
@@ -13,7 +13,7 @@ const mutations = {
   AUTH_USER (state, userData) {
     localStorage.setItem('token', userData.token)
     state.tokenID = localStorage.getItem('token')
-    localStorage.setItem('userData', userData.user)
+    localStorage.setItem('userData', JSON.stringify(userData.user))
     state.userData = localStorage.getItem('userData')
   },
   USER_LOGGEDIN (state, data) {
