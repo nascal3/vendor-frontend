@@ -2,15 +2,19 @@ import axios from '@/components/Interceptors/axios-interceptor'
 
 const state = {
   loading: false,
-  loggedIn: localStorage.getItem('loggedIn'),
+  loggedIn: null || localStorage.getItem('loggedIn'),
   tokenID: null,
+  userData: {} || localStorage.getItem('userData'),
   loginError: null,
   fakeData: []
 }
 
 const mutations = {
   AUTH_USER (state, userData) {
-    state.tokenID = localStorage.setItem('token', userData.token)
+    localStorage.setItem('token', userData.token)
+    state.tokenID = localStorage.getItem('token')
+    localStorage.setItem('userData', userData.user)
+    state.userData = localStorage.getItem('userData')
   },
   USER_LOGGEDIN (state, data) {
     localStorage.setItem('loggedIn', data)
@@ -19,8 +23,10 @@ const mutations = {
   LOGOUT_USER (state, data) {
     state.loggedIn = false
     state.tokenID = null
+    state.userData = {}
     localStorage.removeItem('token')
     localStorage.removeItem('loggedIn')
+    localStorage.removeItem('userData')
   },
   LOGIN_ERROR (state, data) {
     state.loginError = data
@@ -66,6 +72,9 @@ const getters = {
   },
   loggedIn: state => {
     return state.loggedIn
+  },
+  userData: state => {
+    return state.userData
   },
   loginError: state => {
     return state.loginError
