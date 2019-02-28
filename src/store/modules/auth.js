@@ -2,9 +2,9 @@ import axios from '@/components/Interceptors/axios-interceptor'
 
 const state = {
   loading: false,
-  loggedIn: null || localStorage.getItem('loggedIn'),
+  loggedIn: localStorage.getItem('loggedIn'),
   tokenID: null,
-  userData: null || localStorage.getItem('userData'),
+  userData: localStorage.getItem('userData'),
   loginError: null,
   fakeData: []
 }
