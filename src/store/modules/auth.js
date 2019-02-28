@@ -1,12 +1,11 @@
-import axios from '@/components/Interceptors/axios-interceptor'
+import axios from 'axios'
 
 const state = {
   loading: false,
   loggedIn: localStorage.getItem('loggedIn'),
   tokenID: null,
   userData: localStorage.getItem('userData'),
-  loginError: null,
-  fakeData: []
+  loginError: null
 }
 
 const mutations = {
@@ -24,18 +23,17 @@ const mutations = {
     state.loggedIn = false
     state.tokenID = null
     state.userData = {}
+
     localStorage.removeItem('token')
     localStorage.removeItem('loggedIn')
     localStorage.removeItem('userData')
+    localStorage.removeItem('salesTrans')
   },
   LOGIN_ERROR (state, data) {
     state.loginError = data
   },
   SHOW_LOADER (state, data) {
     state.loading = data
-  },
-  GET_FAKE_DATA (state, results) {
-    state.fakeData = results.data
   }
 }
 
@@ -55,15 +53,7 @@ const actions = {
   },
   logoutUser ({ commit }) {
     commit('LOGOUT_USER')
-  },
-  getFakeData ({ commit, state }) {
-    if (state.fakeData.length === 0) {
-      axios.get('items/item/186076/1').then((res) => {
-        commit('GET_FAKE_DATA', res)
-      }).catch(err => console.error('Error occurred!: ', err.message))
-    }
   }
-
 }
 
 const getters = {
