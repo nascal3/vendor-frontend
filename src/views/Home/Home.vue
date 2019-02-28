@@ -2,10 +2,10 @@
   <div class="home">
     <section class="row">
       <v-card class="home__itemsCard">
-        {{sampleData.item}}
+        {{salesTrans.item}}
       </v-card>
       <v-card class="home__itemsCard">
-        {{sampleData.pages}}
+        {{salesTrans.pages}}
       </v-card>
       <v-card class="home__itemsCard">
 
@@ -14,14 +14,13 @@
 
     <section class="row">
       <v-card class="home__itemsTableCard">
-        {{sampleData.transactions}}
+        {{salesTrans.transactions}}
       </v-card>
     </section>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
 
 export default {
   data () {
@@ -30,16 +29,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      sampleData: 'fakeData'
-    }),
-    ...mapActions({
-      getData: 'getFakeData'
-    })
+    salesTrans () {
+      return JSON.parse(this.$store.getters.salesTrans)
+    }
   },
   mounted () {
-    // this.getData()
-    this.$store.dispatch('getFakeData')
+    this.$store.dispatch('fetchTransactions')
   }
 }
 </script>
