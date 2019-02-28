@@ -14,7 +14,7 @@
             >
               <div v-if="loginError" class="Login__container-form--error">
                 <v-icon>warning</v-icon>
-                Wrong username or Password!
+                Wrong Username or Password!
               </div>
             </transition>
             <form class="Login__container-form--container" @submit.prevent="onSubmit">
