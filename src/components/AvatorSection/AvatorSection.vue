@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="avatorMenu">
     <v-badge overlap color="info">
       <span slot="badge">3</span>
 
