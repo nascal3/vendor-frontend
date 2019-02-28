@@ -120,7 +120,7 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     if (this.loggedIn) {
       this.$router.push('home')
     }
