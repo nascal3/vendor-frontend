@@ -9,9 +9,9 @@
         leave-active-class="bounceOutRight"
         mode="out-in"
       >
-        <section class="userTitle" v-if="loggedIn && userFullname">
+        <section class="userTitle" v-if="loggedIn">
           <span>Welcome</span>&nbsp;
-          <span class="text-lowercase">{{userFullname}}</span>
+          <span class="text-lowercase">{{userInfo.Fullname}}</span>
         </section>
       </transition>
 
@@ -31,15 +31,12 @@
 
 import TopNavBar from '@/components/TopNavbar/TopNavbar'
 import SideNavBar from '@/components/SideNavbar/SideNavbar'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   data () {
     return {
-      navSate: false,
-      userInfo: {},
-      userFullname: ''
+      navSate: false
     }
   },
   components: {
@@ -52,14 +49,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      userData: 'userData',
-      loggedIn: 'loggedIn'
-    })
-  },
-  mounted () {
-    this.userInfo = JSON.parse(this.userData)
-    this.userFullname = this.userInfo.Fullname
+    loggedIn () {
+      return this.$store.getters.loggedIn
+    },
+    userInfo () {
+      return JSON.parse(this.$store.getters.userData)
+    }
+
   }
 }
 </script>
