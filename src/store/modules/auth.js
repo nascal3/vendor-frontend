@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '@/components/Interceptors/axios-interceptor'
 
 const state = {
   loading: false,
