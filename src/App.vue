@@ -55,7 +55,6 @@ export default {
     userInfo () {
       return JSON.parse(this.$store.getters.userData)
     }
-
   }
 }
 </script>
