@@ -2,6 +2,9 @@
 
 .home {
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__itemsCard {
     border-radius: .5rem;
@@ -11,9 +14,12 @@
   }
 
   &__itemsTableCard {
+    display: flex;
     border-radius: .5rem;
     min-height: 30rem;
     width: 100%;
     margin-bottom: 1.5rem;
+    justify-content: center;
+    align-items: center;
   }
 }
