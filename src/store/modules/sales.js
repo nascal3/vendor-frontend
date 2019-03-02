@@ -10,7 +10,7 @@ const mutations = {
     localStorage.setItem('salesTrans', JSON.stringify(results.data))
     state.salesTransactions = localStorage.getItem('salesTrans')
   },
-  SHOW_LOADER (state, data) {
+  DATA_LOADER (state, data) {
     state.loading = data
   }
 
@@ -18,12 +18,12 @@ const mutations = {
 
 const actions = {
   fetchTransactions ({ commit }, dataValues) {
-    commit('SHOW_LOADER', true)
+    commit('DATA_LOADER', true)
     axios.get(`items/item/${dataValues.Vendor_No}/${dataValues.page}`).then((res) => {
       commit('FETCH_TRANSACTIONS', res)
-      commit('SHOW_LOADER', false)
+      commit('DATA_LOADER', false)
     }).catch(err => {
-      commit('SHOW_LOADER', false)
+      commit('DATA_LOADER', false)
       console.error('Error occurred!: ', err.message)
     })
   }
