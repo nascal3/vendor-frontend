@@ -2,9 +2,6 @@
 
 .home {
   padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &__itemsCard {
     border-radius: .5rem;
@@ -21,5 +18,25 @@
     margin-bottom: 1.5rem;
     justify-content: center;
     align-items: center;
+
   }
+
+  &__dataTable {
+    width: 100%;
+    padding: 3rem;
+
+    &-itemName {
+      display: block;
+      width: 100%;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+
+    &-itemNum {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+  }
+
 }

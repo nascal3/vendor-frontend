@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div class="home">
     <v-progress-circular
         v-if="sales === null "
@@ -46,13 +46,40 @@
             indeterminate
           >
           </v-progress-circular>
-          <div v-if="!showLoader">
-            <div v-if="sales.transactions.length > 0">
-              {{sales.transactions}}
-            </div>
-            <div v-else>
-              no transactions found
-            </div>
+          <div class="home__dataTable" v-if="!showLoader">
+
+            <v-card-title>
+              <div class="home__dataTable-itemName">Item Name: {{sales.item.Description}}</div>
+              <div class="home__dataTable-itemNum">Item Number: {{sales.item.No}}</div>
+                <v-spacer></v-spacer>
+                <v-text-field
+                  v-model="search"
+                  append-icon="search"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
+            </v-card-title>
+            <v-data-table
+                :headers="headers"
+                :items="sales.transactions"
+                :search="search"
+              >
+                <template v-slot:items="props">
+                  <td>{{ props.item.Store_No }}</td>
+                  <td>{{ props.item.Transaction_No }}</td>
+                  <td>{{ props.item.Date | moment(" D MMM YYYY")}}</td>
+                  <td>{{ props.item.Price | currency('') }}</td>
+                  <td>{{ props.item.Net_Price | currency('') }}</td>
+                  <td>{{ props.item.Cost_Amount | currency('') }}</td>
+                  <td>{{ props.item.Net_Amount | currency('') }}</td>
+                  <td>{{ props.item.VAT_Amount | currency('') }}</td>
+                  <td>{{ props.item.Standard_Net_Price | currency('') }}</td>
+                  <td>{{ props.item.Disc_Amount_From_Std_Price | currency('') }}</td>
+                  <td>{{ props.item.Item_Posting_Group }}</td>
+                  <td>{{ props.item.Refund_Qty }}</td>
+                </template>
+              </v-data-table>
           </div>
 
         </v-card>
@@ -68,7 +95,21 @@
 export default {
   data () {
     return {
-
+      search: '',
+      headers: [
+        { text: 'Store No', value: 'Store_No' },
+        { text: 'Transaction No', value: 'Transaction_No' },
+        { text: 'Date', value: 'Date' },
+        { text: 'Price', value: 'Price' },
+        { text: 'Net Price', value: 'Net_Price' },
+        { text: 'Cost Amount', value: 'Cost_Amount' },
+        { text: 'Net Amount', value: 'Net_Amount' },
+        { text: 'VAT Amount', value: 'VAT_Amount' },
+        { text: 'Standard Net Price', value: 'Standard_Net_Price' },
+        { text: 'Disc Amount', value: 'Disc_Amount_From_Std_Price' },
+        { text: 'Item Posting Group', value: 'Item_Posting_Group' },
+        { text: 'Refund Qty', value: 'Refund_Qty' }
+      ]
     }
   },
   computed: {
@@ -81,7 +122,7 @@ export default {
   },
   mounted () {
     let userData = JSON.parse(localStorage.getItem('userData'))
-    userData.page = 2
+    userData.page = 1
     this.$store.dispatch('fetchTransactions', userData)
   }
 }
