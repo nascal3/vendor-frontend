@@ -1,5 +1,6 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div class="home">
+    <div class="home__loader">
     <v-progress-circular
         v-if="sales === null "
         :size="70"
@@ -7,7 +8,8 @@
         color="info"
         indeterminate
       >
-    </v-progress-circular>
+      </v-progress-circular>
+    </div>
 
     <transition
       name="bounce"
@@ -122,7 +124,7 @@ export default {
   },
   mounted () {
     let userData = JSON.parse(localStorage.getItem('userData'))
-    userData.page = 1
+    userData.page = 2
     this.$store.dispatch('fetchTransactions', userData)
   }
 }
