@@ -64,7 +64,7 @@
             </v-card-title>
             <v-data-table
                 :headers="headers"
-                :items="sales.transactions"
+                :items="salesTransct"
                 :search="search"
               >
                 <template v-slot:items="props">
@@ -82,8 +82,11 @@
                   <td>{{ props.item.Refund_Qty }}</td>
                 </template>
               </v-data-table>
-          </div>
 
+            <v-btn class="home__dataTable-loadBtn" @click="loadMore(sales)" color="accent" v-if="!dataEnd">
+              <span v-if="!showLoader" >Load More records...</span>
+            </v-btn>
+          </div>
         </v-card>
       </section>
        </div>
@@ -98,6 +101,8 @@ export default {
   data () {
     return {
       search: '',
+      salesTransct: [],
+      dataEnd: false,
       headers: [
         { text: 'Store No', value: 'Store_No' },
         { text: 'Transaction No', value: 'Transaction_No' },
@@ -122,9 +127,33 @@ export default {
       return this.$store.getters.loading
     }
   },
+  watch: {
+    sales (newValue, oldValue) {
+      this.salesTransct.push(...newValue.transactions)
+      console.log(this.salesTransct)
+    }
+  },
+  methods: {
+    loadMore (salesData) {
+      if (salesData.currentPage <= salesData.pages) {
+        salesData.currentPage++
+        if (salesData.currentPage === 1) salesData.currentPage++
+
+        salesData.currentPage === salesData.pages ? this.dataEnd = true : this.dataEnd = false
+
+        if (salesData.currentPage <= salesData.pages) {
+          salesData.page = salesData.currentPage
+
+          let userData = JSON.parse(localStorage.getItem('userData'))
+          salesData.Vendor_No = userData.Vendor_No
+          this.$store.dispatch('fetchTransactions', salesData)
+        }
+      }
+    }
+  },
   mounted () {
     let userData = JSON.parse(localStorage.getItem('userData'))
-    userData.page = 2
+    userData.page = 1
     this.$store.dispatch('fetchTransactions', userData)
   }
 }
