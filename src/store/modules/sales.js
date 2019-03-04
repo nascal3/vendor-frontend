@@ -24,6 +24,7 @@ const actions = {
       commit('DATA_LOADER', false)
     }).catch(err => {
       commit('DATA_LOADER', false)
+      alert('Oops an error occurred!')
       console.error('Error occurred!: ', err.message)
     })
   }
